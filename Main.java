@@ -6,9 +6,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         Catalogo miNetflix = new Catalogo();
-
-        // --- CARGA INICIAL (Lo que ya teníamos) ---
-        // Esto cumple con el requisito de "Crear al menos 3 objetos" del PDF
+        
         miNetflix.agregarPelicula(new Pelicula("Shrek", "Andrew Adamson", 2001, "Animación", 90));
         miNetflix.agregarPelicula(new Pelicula("Toy Story", "John Lasseter", 1995, "Animación", 81));
         miNetflix.agregarPelicula(new Pelicula("Cars", "John Lasseter", 2006, "Animación", 117));
@@ -16,17 +14,16 @@ public class Main {
 
         int opcion = 0;
 
-        // --- MENÚ INTERACTIVO ---
         do {
             System.out.println("\n=== MENÚ DE STREAMING ===");
             System.out.println("1. Ver Catálogo Completo");
             System.out.println("2. Buscar Película");
-            System.out.println("3. Agregar Nueva Película"); // <--- ¡NUEVA OPCIÓN!
+            System.out.println("3. Agregar Nueva Película"); 
             System.out.println("4. Salir");
             System.out.print("Elige una opción: ");
 
             opcion = entrada.nextInt();
-            entrada.nextLine(); // LIMPIEZA OBLIGATORIA DEL ENTER
+            entrada.nextLine(); 
 
             switch (opcion) {
                 case 1:
@@ -40,7 +37,7 @@ public class Main {
                     miNetflix.buscarPeliculaPorTitulo(tituloBuscar);
                     break;
 
-                case 3: // <--- AQUÍ USAMOS TU MÉTODO INTERACTIVAMENTE
+                case 3: 
                     System.out.println("\n--- AGREGANDO NUEVA PELÍCULA ---");
 
                     System.out.print("Título: ");
@@ -51,19 +48,17 @@ public class Main {
 
                     System.out.print("Año de Estreno: ");
                     int anio = entrada.nextInt();
-                    entrada.nextLine(); // Limpieza después de leer número
+                    entrada.nextLine(); 
 
                     System.out.print("Género: ");
                     String genero = entrada.nextLine();
 
                     System.out.print("Duración (minutos): ");
                     int duracion = entrada.nextInt();
-                    entrada.nextLine(); // Limpieza final
+                    entrada.nextLine();
 
-                    // 1. Creamos la película con los datos que escribiste
                     Pelicula nuevaPeli = new Pelicula(titulo, director, anio, genero, duracion);
 
-                    // 2. La guardamos en el catálogo usando el método que preguntaste
                     miNetflix.agregarPelicula(nuevaPeli);
 
                     System.out.println("¡Película agregada con éxito!");
